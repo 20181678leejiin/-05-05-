@@ -6,7 +6,6 @@ class TestGuess(unittest.TestCase):
 
     def setUp(self):
         self.g1 = Guess('default')
-        self.w1 = Word
     def tearDown(self):
         pass
 
