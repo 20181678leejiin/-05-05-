@@ -23,10 +23,13 @@ class Word:
 
     def randFromDB(self,minLenght):
         selected = False
+        if 22<minLenght: # 최대 길이가 22인것을 알고있음! 모를경우 대비하기
+            minLenght = 22
+
         while not selected:
             r = random.randrange(self.count)
             if len(self.words[r]) <= minLenght:
-                self.randFromDB(4)
+                self.randFromDB(minLenght)
             else:
-                return self.words[r]
+                return self.words[r] # 길이가 1개 인경우 가장 긴 단어가 2개 이상일 경우 생각하기!
 

@@ -35,6 +35,7 @@ class HangmanGame(QWidget):
 
         # Display widget for current status
         self.currentWord = QLineEdit()
+	self.currentWord.setFixedWidth(350)
         self.currentWord.setReadOnly(True)
         self.currentWord.setAlignment(Qt.AlignCenter)
         font = self.currentWord.font()
@@ -89,10 +90,14 @@ class HangmanGame(QWidget):
 
     def startGame(self):
         self.hangman = Hangman()
-        self.guess = Guess(self.word.randFromDB(4))
-        if len(self.guess) > 10:
-            self.currentWord.resize
+        self.guess = Guess(self.word.randFromDB(20))
         self.gameOver = False
+
+        if len(self.guess.secretWord) >=10:
+            font = self.currentWord.font()
+            font.setPointSize(font.pointSize())
+            self.currentWord.setFont(font)
+
 
         self.hangmanWindow.setPlaceholderText(self.hangman.currentShape())
         self.currentWord.setText(self.guess.displayCurrent())
